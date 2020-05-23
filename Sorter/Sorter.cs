@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sorter
 {
@@ -19,6 +20,13 @@ namespace Sorter
             Sort(array, low, splitIndex - 1);
             Sort(array, splitIndex, high);
             Join(array, low, splitIndex, high);
+        }
+
+        protected void Swap(IList<object> array, int x, int y)
+        {
+            var temp = (int)array[x];
+            array[x] = array[y];
+            array[y] = temp;
         }
 
         protected abstract int Split(object[] array, int low, int high);

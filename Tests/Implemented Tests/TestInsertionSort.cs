@@ -10,7 +10,7 @@ namespace Tests.Implemented_Tests
         public void Setup()
         {
             var ordering = new IntegerOrder();
-            this.TestSorter = new InsertionSort(ordering);
+            TestSorter = new InsertionSort(ordering);
         }
     }
 }

@@ -28,12 +28,5 @@ namespace Sorter.Implemented_Sorts
         {
             // Do nothing
         }
-
-        private void Swap(IList<object> array, int x, int y)
-        {
-            var temp = (int)array[x];
-            array[x] = array[y];
-            array[y] = temp;
-        }
     }
 }
