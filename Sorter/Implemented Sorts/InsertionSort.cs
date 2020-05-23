@@ -11,12 +11,16 @@
 
         protected override void Join(object[] array, int low, int splitIndex, int high)
         {
-            int j, key = (int)array[high];
-            for (j = high; low < j && Order.LessThan(key, array[j-1]); j--)
+            int jj;
+            var key = array[high]; // Pick the last element in the array to insert
+            
+            // Begin shuffling any elements larger than the key over to the right
+            for (jj = high; low < jj && Order.LessThan(key, array[jj - 1]); jj--)
             {
-                array[j] = array[j - 1];
+                array[jj] = array[jj - 1];
             }
-            array[j] = key;
+            
+            array[jj] = key; // Insert the key at it's final position
         }
     }
 }

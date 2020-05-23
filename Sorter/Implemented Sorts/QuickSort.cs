@@ -9,19 +9,24 @@ namespace Sorter.Implemented_Sorts
 
         protected override int Split(object[] array, int low, int high)
         {
+            // Select a pivot
             var pivot = array[high];
 
-            var ii = low - 1;
+            // Get initial index of smaller side
+            var ii = low;
+            
+            // Begin swapping elements to ensure those less than the pivot are to the left
+            // and those greater than or equal to the pivot are on the right
             for (var jj = low; jj < high; jj++)
             {
                 if (!Order.LessThan(array[jj], pivot)) continue;
                 
-                ii++;
                 Swap(array, ii, jj);
+                ii++;
             }
 
-            Swap(array, ii + 1, high);
-            return ii + 1;
+            Swap(array, ii, high);
+            return ii;
         }
 
         protected override void Join(object[] array, int low, int splitIndex, int high)

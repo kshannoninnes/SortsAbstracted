@@ -6,6 +6,7 @@ namespace Sorter.Implemented_Sorts
 
         protected override int Split(object[] array, int low, int high)
         {
+            // Bubble the largest element in the array up to the last position
             for (var ii = low; ii < high; ii++)
             {
                 if (Order.GreaterThan(array[ii], array[ii + 1]))
