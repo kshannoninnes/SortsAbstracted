@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
+using System.Threading.Tasks;
 
 namespace Sorter
 {
@@ -12,24 +12,26 @@ namespace Sorter
             Order = order;
         }
 
-        public void Sort(object[] array, int low, int high)
+        public async Task Sort(IList list, int low, int high)
         {
             if (low >= high) return;
             
-            var splitIndex = Split(array, low, high);
-            Sort(array, low, splitIndex - 1);
-            Sort(array, splitIndex, high);
-            Join(array, low, splitIndex, high);
+            var splitIndex = await Split(list, low, high);
+            await Sort(list, low, splitIndex - 1);
+            await Sort(list, splitIndex, high);
+            await Join(list, low, splitIndex, high);
         }
 
-        protected void Swap(IList<object> array, int x, int y)
+        protected async Task Swap(IList list, int x, int y)
         {
-            var temp = (int)array[x];
-            array[x] = array[y];
-            array[y] = temp;
+            var temp = list[x];
+            list[x] = list[y];
+            list[y] = temp;
+
+            await Task.CompletedTask;
         }
 
-        protected abstract int Split(object[] array, int low, int high);
-        protected abstract void Join(object[] array, int low, int splitIndex, int high);
+        protected abstract Task<int> Split(IList list, int low, int high);
+        protected abstract Task Join(IList list, int low, int splitIndex, int high);
     }
 }

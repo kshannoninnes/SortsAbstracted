@@ -1,26 +1,28 @@
+using System.Collections;
+using System.Threading.Tasks;
+
 namespace Sorter.Implemented_Sorts
 {
     public class BubbleSort : Sorter
     {
         public BubbleSort(Order order) : base(order) { }
 
-        protected override int Split(object[] array, int low, int high)
+        protected override async Task<int> Split(IList list, int low, int high)
         {
             // Bubble the largest element in the array up to the last position
             for (var ii = low; ii < high; ii++)
             {
-                if (Order.GreaterThan(array[ii], array[ii + 1]))
-                {
-                    Swap(array, ii, ii + 1);
-                }
+                await Task.Delay(1);
+                if (!Order.GreaterThan(list[ii], list[ii + 1])) continue;
+                await Swap(list, ii, ii + 1);
             }
-
             return high;
         }
 
-        protected override void Join(object[] array, int low, int splitIndex, int high)
+        protected override Task Join(IList list, int low, int splitIndex, int high)
         {
             // Do nothing
+            return Task.CompletedTask;
         }
     }
 }
