@@ -2,7 +2,7 @@ using System;
 
 namespace Sorter.Implemented_Orders
 {
-    public class DoubleAbstractOrder: AbstractOrder
+    public class DoubleOrder: AbstractOrder
     {
         /// <summary>
         ///     Return true if the first double parameter is less than the second double parameter

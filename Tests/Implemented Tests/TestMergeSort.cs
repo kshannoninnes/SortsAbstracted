@@ -9,7 +9,7 @@ namespace Tests.Implemented_Tests
         [SetUp]
         public void Setup()
         {
-            var ordering = new IntegerAbstractOrder();
+            var ordering = new IntegerOrder();
             TestAbstractSort = new MergeSort(ordering);
         }
     }
