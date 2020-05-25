@@ -9,17 +9,14 @@ namespace Sorter.Implemented_Sorts
 
         protected override async Task<int> Split(IList list, int low, int high)
         {
-            for (var ii = low; ii < high; ii++) 
-                if (Order.GreaterThan(list[ii], list[high])) 
-                    await Swap(list, ii, high);
-
-            await Task.Delay(1);
+            await Swap(list, low, high);
             await MinHeapify(list, low, high - 1);
             return high;
         }
 
         private async Task MinHeapify(IList list, int ii, int heapSize)
         {
+            await Task.Delay(1);
             var smallest = ii;
             var leftChild = ii * 2 + 1;
             var rightChild = ii * 2 + 2;

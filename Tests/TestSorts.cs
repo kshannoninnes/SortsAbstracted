@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -17,7 +18,12 @@ namespace Tests
             var input = new object[] {5, 4, 3, 2, 1};
             var expected = new object[] {1, 2, 3, 4, 5};
             
+            var timer = new Stopwatch();
+            timer.Start();
             await TestSorter.Sort(input, 0, 4);
+            timer.Stop();
+            
+            Console.WriteLine($"Test running time: {timer.Elapsed}");
             Assert.AreEqual(expected, input);
         }
 
@@ -27,7 +33,12 @@ namespace Tests
             var input = new object[] {1, 2, 3, 4, 5};
             var expected = new object[] {1, 2, 3, 4, 5};
             
+            var timer = new Stopwatch();
+            timer.Start();
             await TestSorter.Sort(input, 0, 4);
+            timer.Stop();
+            
+            Console.WriteLine($"Test running time: {timer.Elapsed}");
             Assert.AreEqual(expected, input);
         }
 
@@ -39,7 +50,12 @@ namespace Tests
             input = input.OrderBy(x => rand.Next()).ToArray();
             var expected = new object[] {1, 2, 3, 4, 5};
             
+            var timer = new Stopwatch();
+            timer.Start();
             await TestSorter.Sort(input, 0, 4);
+            timer.Stop();
+            
+            Console.WriteLine($"Test running time: {timer.Elapsed}");
             Assert.AreEqual(expected, input);
         }
     }
