@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Sorter.Implemented_Sorts
 {
-    public class BubbleSort : Sorter
+    public class BubbleSort : AbstractSort
     {
-        public BubbleSort(Order order) : base(order) { }
+        public BubbleSort(AbstractOrder abstractOrder) : base(abstractOrder) { }
 
         protected override async Task<int> Split(IList list, int low, int high)
         {
@@ -13,7 +13,7 @@ namespace Sorter.Implemented_Sorts
             for (var ii = low; ii < high; ii++)
             {
                 await Task.Delay(1);
-                if (!Order.GreaterThan(list[ii], list[ii + 1])) continue;
+                if (!AbstractOrder.GreaterThan(list[ii], list[ii + 1])) continue;
                 await Swap(list, ii, ii + 1);
             }
             return high;

@@ -10,7 +10,7 @@ namespace Tests
 {
     public abstract class TestSorts
     {
-        protected Sorter.Sorter TestSorter;
+        protected Sorter.AbstractSort TestAbstractSort;
 
         [Test]
         public async Task Sort_ReverseSortedArray_IsSorted()
@@ -20,7 +20,7 @@ namespace Tests
             
             var timer = new Stopwatch();
             timer.Start();
-            await TestSorter.Sort(input, 0, 4);
+            await TestAbstractSort.Sort(input, 0, 4);
             timer.Stop();
             
             Console.WriteLine($"Test running time: {timer.Elapsed}");
@@ -35,7 +35,7 @@ namespace Tests
             
             var timer = new Stopwatch();
             timer.Start();
-            await TestSorter.Sort(input, 0, 4);
+            await TestAbstractSort.Sort(input, 0, 4);
             timer.Stop();
             
             Console.WriteLine($"Test running time: {timer.Elapsed}");
@@ -52,7 +52,7 @@ namespace Tests
             
             var timer = new Stopwatch();
             timer.Start();
-            await TestSorter.Sort(input, 0, 4);
+            await TestAbstractSort.Sort(input, 0, 4);
             timer.Stop();
             
             Console.WriteLine($"Test running time: {timer.Elapsed}");

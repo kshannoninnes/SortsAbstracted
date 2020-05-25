@@ -1,6 +1,6 @@
 ﻿namespace Sorter
 {
-    public abstract class Order
+    public abstract class AbstractOrder
     {
         public bool NotEqual(object x, object y)
         {

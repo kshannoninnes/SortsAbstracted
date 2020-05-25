@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace Sorter
 {
-    public abstract class Sorter
+    public abstract class AbstractSort
     {
-        protected readonly Order Order;
+        protected readonly AbstractOrder AbstractOrder;
         
-        protected Sorter(Order order)
+        protected AbstractSort(AbstractOrder abstractOrder)
         {
-            Order = order;
+            AbstractOrder = abstractOrder;
         }
 
         public async Task Sort(IList list, int low, int high)

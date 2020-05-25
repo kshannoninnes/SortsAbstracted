@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Sorter.Implemented_Sorts
 {
-    public class MergeSort : Sorter
+    public class MergeSort : AbstractSort
     {
-        public MergeSort(Order order) : base(order) { }
+        public MergeSort(AbstractOrder abstractOrder) : base(abstractOrder) { }
 
         protected override async Task<int> Split(IList list, int low, int high)
         {
@@ -41,7 +41,7 @@ namespace Sorter.Implemented_Sorts
             while (i < n1 && j < n2) 
             { 
                 await Task.Delay(1);
-                if (Order.LessThanOrEqual(left[i], right[j])) 
+                if (AbstractOrder.LessThanOrEqual(left[i], right[j])) 
                 { 
                     list[k] = left[i]; 
                     i++; 

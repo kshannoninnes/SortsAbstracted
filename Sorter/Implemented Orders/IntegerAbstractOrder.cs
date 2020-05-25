@@ -1,6 +1,6 @@
 ﻿namespace Sorter.Implemented_Orders
 {
-    public class IntegerOrder : Order
+    public class IntegerAbstractOrder : AbstractOrder
     {
         /// <summary>
         ///     Return true if the first integer value is less than the second integer value

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Sorter.Implemented_Sorts
 {
-    public class InsertionSort : Sorter
+    public class InsertionSort : AbstractSort
     {
-        public InsertionSort(Order order) : base(order) { }
+        public InsertionSort(AbstractOrder abstractOrder) : base(abstractOrder) { }
 
         protected override Task<int> Split(IList list, int low, int high)
         {
@@ -18,7 +18,7 @@ namespace Sorter.Implemented_Sorts
             var key = list[high]; // Pick the last element in the array to insert
             
             // Begin shuffling any elements larger than the key over to the right
-            for (jj = high; low < jj && Order.LessThan(key, list[jj - 1]); jj--)
+            for (jj = high; low < jj && AbstractOrder.LessThan(key, list[jj - 1]); jj--)
             {
                 await Task.Delay(1);
                 list[jj] = list[jj - 1];

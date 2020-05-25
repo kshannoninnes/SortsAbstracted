@@ -9,8 +9,8 @@ namespace Tests.Implemented_Tests
         [SetUp]
         public void Setup()
         {
-            var ordering = new IntegerOrder();
-            TestSorter = new BubbleSort(ordering);
+            var ordering = new IntegerAbstractOrder();
+            TestAbstractSort = new BubbleSort(ordering);
         }
     }
 }

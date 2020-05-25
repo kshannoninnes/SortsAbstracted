@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Sorter.Implemented_Sorts
 {
-    public class HeapSort : Sorter
+    public class HeapSort : AbstractSort
     {
-        public HeapSort(Order order) : base(order) { }
+        public HeapSort(AbstractOrder abstractOrder) : base(abstractOrder) { }
 
         protected override async Task<int> Split(IList list, int low, int high)
         {
@@ -29,8 +29,8 @@ namespace Sorter.Implemented_Sorts
             var leftChild = ii * 2 + 1;
             var rightChild = ii * 2 + 2;
 
-            if (leftChild <= n && Order.GreaterThan(list[leftChild], list[largest])) largest = leftChild;
-            if (rightChild <= n && Order.GreaterThan(list[rightChild], list[largest])) largest = rightChild;
+            if (leftChild <= n && AbstractOrder.GreaterThan(list[leftChild], list[largest])) largest = leftChild;
+            if (rightChild <= n && AbstractOrder.GreaterThan(list[rightChild], list[largest])) largest = rightChild;
 
             if (largest != ii)
             {

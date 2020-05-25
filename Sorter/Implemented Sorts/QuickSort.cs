@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Sorter.Implemented_Sorts
 {
-    public class QuickSort : Sorter
+    public class QuickSort : AbstractSort
     {
-        public QuickSort(Order order) : base(order) { }
+        public QuickSort(AbstractOrder abstractOrder) : base(abstractOrder) { }
 
         // Hoare Partition Scheme
         // https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
@@ -23,12 +23,12 @@ namespace Sorter.Implemented_Sorts
             while (true)
             {
                 await Task.Delay(1);
-                while (Order.LessThan(list[ii], pivot))
+                while (AbstractOrder.LessThan(list[ii], pivot))
                 {
                     ii++;
                 }
 
-                while (Order.GreaterThan(list[jj], pivot))
+                while (AbstractOrder.GreaterThan(list[jj], pivot))
                 {
                     jj--;
                 }
