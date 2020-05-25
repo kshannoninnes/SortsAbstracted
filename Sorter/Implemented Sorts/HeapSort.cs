@@ -16,7 +16,7 @@ namespace Sorter.Implemented_Sorts
                     await MaxHeapify(list, high, ii);
             }
             
-            await Swap(list, low, high);
+            Swap(list, low, high);
             await MaxHeapify(list, high - 1, low);
             return high;
         }
@@ -34,7 +34,7 @@ namespace Sorter.Implemented_Sorts
 
             if (largest != ii)
             {
-                await Swap(list, ii, largest);
+                Swap(list, ii, largest);
                 await MaxHeapify(list, n, largest);
             }
         }

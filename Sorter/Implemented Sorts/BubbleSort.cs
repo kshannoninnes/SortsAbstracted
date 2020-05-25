@@ -14,7 +14,7 @@ namespace Sorter.Implemented_Sorts
             {
                 await Task.Delay(1);
                 if (!AbstractOrder.GreaterThan(list[ii], list[ii + 1])) continue;
-                await Swap(list, ii, ii + 1);
+                Swap(list, ii, ii + 1);
             }
             return high;
         }

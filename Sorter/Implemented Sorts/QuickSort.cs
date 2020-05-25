@@ -38,7 +38,7 @@ namespace Sorter.Implemented_Sorts
                     return jj + 1; // +1 to account for base Sorter using -1 instead of +1 for the recursive calls
                 }
 
-                await Swap(list, ii, jj);
+                Swap(list, ii, jj);
                 ii++;
                 jj--;
             }
