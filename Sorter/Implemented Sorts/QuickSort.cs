@@ -49,27 +49,5 @@ namespace Sorter.Implemented_Sorts
             // Do nothing
             return Task.CompletedTask;
         }
-
-        private async Task<int> SelectPivot(IList list, int low, int high)
-        {
-            var mid = (low + high) / 2;
-            
-            if (Order.LessThan(list[mid], list[low]))
-            {
-                await Swap(list, mid, low);
-            }
-
-            if (Order.LessThan(list[high], list[low]))
-            {
-                await Swap(list, high, low);
-            }
-
-            if (Order.LessThan(list[mid], list[high]))
-            {
-                await Swap(list, mid, high);
-            }
-
-            return mid;
-        }
     }
 }

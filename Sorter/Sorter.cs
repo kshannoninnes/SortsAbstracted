@@ -22,13 +22,13 @@ namespace Sorter
             await Join(list, low, splitIndex, high);
         }
 
-        protected async Task Swap(IList list, int x, int y)
+        protected Task Swap(IList list, int x, int y)
         {
             var temp = list[x];
             list[x] = list[y];
             list[y] = temp;
 
-            await Task.CompletedTask;
+            return Task.CompletedTask;
         }
 
         protected abstract Task<int> Split(IList list, int low, int high);
