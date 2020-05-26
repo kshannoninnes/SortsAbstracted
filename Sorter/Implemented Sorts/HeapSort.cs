@@ -12,7 +12,7 @@ namespace Sorter.Implemented_Sorts
             if (high == list.Count - 1) // If this is the first time splitting
             {
                 // Build Max Heap
-                for (var ii = high / 2 - 1; ii >= 0; ii--)
+                for (var ii = high / 2; ii >= 0; ii--)
                     await MaxHeapify(list, high, ii);
             }
             
